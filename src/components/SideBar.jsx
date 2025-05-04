@@ -2,7 +2,7 @@ import { Input } from "./Input";
 import { useState } from "react";
 import { TextArea } from "./TextArea";
 
-export function SideBar({ info, setInfo, isActive, setIsActive }) {
+export function SideBar({ info, setInfo, isActive, setIsActive, setIsLoaded }) {
   const [formData, setFormData] = useState(info);
 
   const toggleClass = () => {
@@ -13,6 +13,7 @@ export function SideBar({ info, setInfo, isActive, setIsActive }) {
     e.preventDefault();
     setInfo(formData);
     setIsActive(!isActive);
+    setIsLoaded(true);
     console.log(info);
   };
 

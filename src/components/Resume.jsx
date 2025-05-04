@@ -1,6 +1,10 @@
-export function Resume({ info, isActive }) {
+export function Resume({ info, isActive, isLoaded }) {
   return (
-    <div className={`resume-wrapper ${isActive ? "blurred" : ""}`}>
+    <div
+      className={`resume-wrapper ${isActive ? "blurred" : ""} ${
+        isLoaded ? "" : "hidden"
+      }`}
+    >
       <div className="resume">
         <div className="basic-info">
           <h1>{info.name}</h1>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Resume } from "./components/Resume";
 import { SideBar } from "./components/SideBar";
+import { Loading } from "./components/Loading";
 
 function App() {
   const [info, setInfo] = useState({
@@ -17,7 +18,8 @@ function App() {
     startDate: "",
     endDate: "",
   });
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div className="wrapper">
@@ -26,8 +28,10 @@ function App() {
         setInfo={setInfo}
         isActive={isActive}
         setIsActive={setIsActive}
+        setIsLoaded={setIsLoaded}
       />
-      <Resume info={info} isActive={isActive} />
+      <Loading isLoaded={isLoaded} />
+      <Resume info={info} isActive={isActive} isLoaded={isLoaded} />
     </div>
   );
 }
